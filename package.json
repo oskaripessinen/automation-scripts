@@ -1,0 +1,18 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && cd src && node app.js",
+    "client": "cd client && npm start",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm install --production",
+    "build:all": "concurrently \"npm run build:client\" \"npm run build:server\"",
+    "push:server": "bash commit-and-push.sh server",
+    "push:client": "bash commit-and-push.sh client",
+    "push:all": "npm run push:server && npm run push:client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
